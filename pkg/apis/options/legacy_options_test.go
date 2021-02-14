@@ -106,6 +106,10 @@ var _ = Describe("Legacy Options", func() {
 
 			opts.InjectResponseHeaders = []Header{}
 
+			opts.Server = Server{
+				BindAddress: "127.0.0.1:4180",
+			}
+
 			converted, err := legacyOpts.ToOptions()
 			Expect(err).ToNot(HaveOccurred())
 			Expect(converted).To(Equal(opts))
